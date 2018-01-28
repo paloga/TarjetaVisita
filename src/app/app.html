@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div>
+      <form>
+        <h1 id="tarjetaForm">Tarjeta de visita</h1>
+        <div id="primerBloque">
+          <label for="input-text">Nombre</label>
+          <input type="text" name="nombre" id="nombre" (keyup)="escribir($event)">
+
+          <label for="input-text">Nombre de la empresa</label>
+          <input type="text" name="empresa" id="empresa" (keyup)="escribir($event)">
+
+          <label for="input-text">Teléfono</label>
+          <input type="tel" name="telefono" id="telefono" (keyup)="escribir($event)">
+
+          <label for="input-text">Correo</label>
+          <input type="email" name="correo" id="correo" (keyup)="escribir($event)">
+        </div>
+        <div id="segundoBloque">
+          <label for="input-text">Descripción</label>
+          <textarea rows="2" cols="30" name="descripcion" (keyup)="escribir($event)">
+          </textarea>
+          <label for="input-text">Color</label>
+          <button id="rojo" type="button" name="button" (click)="setColor('1')"></button>
+          <button id="verde" type="button" name="button" (click)="setColor('2')"></button>
+          <button id="gris" type="button" name="button" (click)="setColor('3')"></button>
+          <button id="negro" type="button" name="button" (click)="setColor('4')"></button>
+          <label for="input-text">Tamaño</label>
+          <button EventTaman evento="+" type="button" name="button">+</button><br>
+          <button EventTaman evento="-" type="button" name="button">-</button>
+        </div>
+      </form>
+
+
+      <div id="tarjeta" [ngStyle]="{'background-color': colores}">
+        <h1 class="tarjetaNombre">{{nombre}}</h1>
+        <p>{{empresa}}</p>
+        <p>{{telefono}}</p>
+        <p>{{correo}}</p>
+        <p>{{descripcion}}</p>
+        <div Directives [ngSwitch]="color">
+          <p *ngSwitchCase="4">Negro</p>
+          <p *ngSwitchCase="3">Gris</p>
+          <p *ngSwitchCase="2">Verde</p>
+          <p *ngSwitchCase="1">Rojo</p>
+          <p *ngSwitchDefault>Verde</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,13 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { EventTaman } from './EventTaman';
+import { Directives } from './Directives';
 
 import { AppComponent } from './app.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EventTaman,
+    Directives
   ],
   imports: [
     BrowserModule
